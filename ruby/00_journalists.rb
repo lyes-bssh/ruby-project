@@ -69,7 +69,11 @@ puts " "
 
 puts "-- Trier par ordre alphabétique --"
 
-puts list.sort(&:casecmp)
+nb = list.sort(&:casecmp)
+
+puts "Voici les handle triés par ordre alphabétique :"
+
+puts "#{nb}"
 
 puts "________________________________________"
 
