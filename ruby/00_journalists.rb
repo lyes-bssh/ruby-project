@@ -32,6 +32,19 @@ puts " "
 
 puts "-- Combien de handle avec 5 lettres ? --"
 
+nb = 0
+nb_ko = list.length
+
+for i in list do 
+  if i.length == 6 
+    nb = nb + 1
+    nb_ko = nb_ko - 1
+  end
+end
+
+puts "Il y a #{nb} handle avec 5 lettres"
+puts "Il y a #{nb_ko} handle avec un nombre de lettres différents"
+
 puts "________________________________________"
 
 
@@ -42,7 +55,9 @@ puts " "
 
 puts "-- Combien de handle commencent par une majuscule ? --"
 
-puts list.count{|handle| handle[1].match?( /[[:upper:]]/ )}
+nb = list.count{|handle| handle[1].match?( /[[:upper:]]/ )}
+
+puts "Il y a #{nb} handle qui commencent par une majuscule"
 
 puts "________________________________________"
 
@@ -78,7 +93,9 @@ puts " "
 
 puts "-- Contrôler la position de @epenser --"
 
-puts list.index "@epenser"
+nb = list.index "@epenser"
+
+puts "Le handle @epenser se trouve à la position #{nb}"
 
 puts "________________________________________"
 
@@ -89,6 +106,25 @@ puts "________________________________________"
 puts " "
 
 puts "-- Répartir les handle par taille --"
+
+var_max = 0
+for i in list do 
+  if i.length > var_max
+    var_max = i.length
+  end
+end
+nb = 0
+for i in 1..var_max do 
+  for j in list do 
+    if j.length == i 
+      nb = nb + 1
+    end
+  end
+  if nb != 0
+    puts "Il y a #{nb} handle de taille #{i}"
+  end
+  nb = 0
+end
 
 puts "________________________________________"
 
